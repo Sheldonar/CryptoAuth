@@ -1,4 +1,3 @@
-from http.client import PAYMENT_REQUIRED
 from time import process_time_ns
 import requests
 import sys 
@@ -7,13 +6,13 @@ import random
 
 
 def get_var(name):
-    response = requests.get(f"http://127.0.0.1:5000/{name}")
+    response = requests.get(f"http://127.0.0.1:5000/fiat_shamir/{name}")
     var = response.json()[name]
     print(f"{name}:", var)
     return var
 
 def post_var(name, value):
-    response = requests.get(f'http://127.0.0.1:5000/{name}/{value}')
+    response = requests.get(f'http://127.0.0.1:5000/fiat_shamir/{name}/{value}')
     var = response.json()[name]
     return var
 
